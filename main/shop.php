@@ -1,5 +1,7 @@
-
 <?php
+session_start();
+$isLoggedIn = isset($_SESSION['user_id']); // Check if the user is logged in
+
 // Database connection
 $servername = "localhost";
 $username = "root"; // Adjust as needed
@@ -42,7 +44,11 @@ function fetchProductsByCategory($conn, $category) {
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="cart.php">Cart</a></li>
                 <li><a href="index.php#about-us">About</a></li>
-                <li><a href="login.php">Log In/Sign Up</a></li>
+                <?php if (isset($_SESSION['Username'])): ?>
+                    <li><a href="account.php">Account</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Log In/Sign Up</a></li>
+                <?php endif; ?>
             </ul>
             <input type="text" placeholder="🔍 Search">
             <div class="logo">
@@ -365,5 +371,7 @@ function fetchProductsByCategory($conn, $category) {
             <p class="footer-bottom">&copy;2024 Cuddle Paws. All rights reserved.</p>
         </footer>
         <script src="js/shop.js"></script>
+        <script src="js/updatedNav.js"></script>
+
 </body>
 </html>

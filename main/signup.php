@@ -137,17 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
     </main>
-    <script>
-    function togglePassword() {
-        const passwordField = document.getElementById("password");
-        const showPasswordCheckbox = document.getElementById("show-password");
+    <script src="js/loginpassw.js"></script>
 
-        if (showPasswordCheckbox.checked) {
-            passwordField.type = "text"; // Show password
-        } else {
-            passwordField.type = "password"; // Hide password
-        }
-    }
-    </script>
 </body>
 </html>

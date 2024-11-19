@@ -1,3 +1,8 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['user_id']); // Check if the user is logged in
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +15,25 @@
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="cart.php">Cart</a></li>
                 <li><a href="index.php#about-us">About</a></li>
-                <li><a href="login.php">Log In/Sign Up</a></li>
+                <?php if (isset($_SESSION['Username'])): ?>
+                    <li><a href="account.php">Account</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Log In/Sign Up</a></li>
+                <?php endif; ?>
             </ul>
             <div class="logo">
                 <img src="https://res.cloudinary.com/dakq2u8n0/image/upload/v1726737021/logocuddlepaws_pcj2re.png" alt="Hero Image">
-                <a href="index.php#about-us">Cuddle Paws</a>
+                <a href="index.php">Cuddle Paws</a>
             </div>
         </nav>
     </header>
-
     <!-- Shopping Cart Section -->
     <main>
         <h1>Shopping Cart</h1>
@@ -129,5 +137,7 @@
         </div>
     </main>
     <script src="js/cart.js"></script>
+    <script src="js/updatedNav.js"></script>
+
 </body>
 </html>
