@@ -1,0 +1,58 @@
+.account-container {
+    width: 250px;
+    background-color: #F8D69B;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: width 0.3s ease; 
+    min-height: 100vh; 
+}
+
+.account-detail {
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 65px; 
+}
+
+.account-detail h3 {
+    color: #7a4507;
+    font-size: 2.5rem;
+    margin-top:50px;
+}
+
+.account-detail ul {
+    list-style: none;
+    padding: 0;
+    margin-top:20px;
+}
+
+.account-detail ul li {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.account-detail ul li a {
+    text-decoration: none;
+    color: #7a4507;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+
+}
+
+.account-detail ul li a:hover {
+    color: #f4a460;
+}
+.content{
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+}
+.content-section {
+    display: none; /* Hide all sections by default */
+}
+
+.content-section.active {
+    display: block; /* Show the active section */
+}
