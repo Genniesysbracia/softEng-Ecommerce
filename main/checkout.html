@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="icon" href="https://res.cloudinary.com/dakq2u8n0/image/upload/v1726737021/logocuddlepaws_pcj2re.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/header.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="cart.php">Cart</a></li>
+                <li><a href="index.php#about-us">About</a></li>
+                <li><a href="login.php">Log In/Sign Up</a></li>
+            </ul>
+            <input type="text" placeholder="🔍 Search">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dakq2u8n0/image/upload/v1726737021/logocuddlepaws_pcj2re.png" alt="Hero Image">
+                <a href="index.html">Cuddle Paws</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="checkout">
+            <h1>Check Out</h1>
+
+            <!-- Delivery Address Form -->
+            <div class="delivery-address">
+                <h2>Delivery Address</h2>
+                <form action="checkout_delivery.php" method="POST">
+                    <!-- <label for="full-name">Full Name</label> -->
+                    <input type="text" id="full-name" name="full-name" placeholder="Full name" required>
+                    <!-- <label for="phone">Phone Number</label> -->
+                    <input type="tel" id="phone" name="phone" placeholder="Phone number" pattern="\+63 [0-9]{3} [0-9]{3} [0-9]{4}" required> 
+                    <!-- <label for="address">Phase/Block, Street</label> -->
+                    <input type="text" id="address" name="address" placeholder="Phase/Block, Street" required>
+                    <!-- <label for="barangay">Barangay</label> -->
+                    <input type="text" id="barangay" name="barangay" placeholder="Barangay" required>
+                    <!-- <label for="municipality">Municipality</label> -->
+                    <input type="text" id="municipality" name="municipality" placeholder="Municipality" required>
+                </form>
+            </div>
+
+            <!-- Your Purchase Section -->
+            <div class="purchase-details">
+                <h2>Your Purchase</h2>
+                <div class="purchase-item">
+                    <img src="https://via.placeholder.com/100" alt="Product Image">
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consecte</p>
+                    </div>
+                </div>
+
+            <!-- Payment Details -->
+            <div class="payment-details">
+                <h2>Payment Details</h2>
+                <div class="payment-item">
+                    <span>Subtotal</span>
+                    <span>₱</span>
+                </div>
+                <div class="shipping-payment">
+                    <span>Shipping</span>
+                    <span>₱</span>
+                </div>
+                <div class="payment-item total">
+                    <span>Total</span>
+                    <span>₱</span>
+                </div>
+            </div>
+
+            <button class="place-order">Place Order</button>
+            <hr class="under-button-line">
+        </div>
+        </section>
+    </main>
+    
+</body>
+</html>
+
+    

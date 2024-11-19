@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .account-page {
+            display: none;
+        }
+        .account-details, .orders {
+            margin-top: 20px;
+        }
+        .order-item {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li id="login-signup-link"><a href="javascript:void(0);" onclick="showLoginPage()">Log In/Sign Up</a></li>
+        <li id="account-link" style="display: none;"><a href="javascript:void(0);" onclick="showAccountPage()">Account</a></li>
+    </ul>
+</nav>
+
+<!-- Login Page (for demonstration) -->
+<div id="login-page" class="container">
+    <h2>Log In</h2>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required><br><br>
+        <input type="password" id="password" placeholder="Password" required><br><br>
+        <button type="submit">Log In</button>
+    </form>
+</div>
+
+<!-- Account Page -->
+<div id="account-page" class="container account-page">
+    <h1>Welcome to Your Account</h1>
+    <div class="account-details">
+        <h2>Personal Details</h2>
+        <p id="personal-details"></p>
+    </div>
+
+    <div class="orders">
+        <h2>Your Orders</h2>
+        <div id="orders-list"></div>
+    </div>
+</div>
+
+<script>
+    // Simulated user data (normally, this would be retrieved from a backend API)
+    const user = {
+        name: 'John Doe',
+        email: 'john@example.com',
+        address: '123 Main St, Springfield, USA',
+        orders: [
+            { id: 1, date: '2024-11-01', total: 59.99 },
+            { id: 2, date: '2024-11-10', total: 79.99 }
+        ]
+    };
+
+    // Function to handle login
+    function showLoginPage() {
+        document.getElementById('login-page').style.display = 'block';
+        document.getElementById('account-page').style.display = 'none';
+    }
+
+    // Simulate login success
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        onLoginSuccess(user);
+    });
+
+    // Function called when login is successful
+    function onLoginSuccess(user) {
+        // Hide login form and show account page
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('account-page').style.display = 'block';
+
+        // Update navigation
+        document.getElementById('login-signup-link').style.display = 'none';
+        document.getElementById('account-link').style.display = 'block';
+
+        // Load user details and orders
+        loadUserAccountDetails(user);
+    }
+
+    // Load personal details and orders into the account page
+    function loadUserAccountDetails(user) {
+        const personalDetails = document.getElementById('personal-details');
+        const ordersList = document.getElementById('orders-list');
+
+        // Personal Details
+        personalDetails.innerHTML = `
+            <p><strong>Name:</strong> ${user.name}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Address:</strong> ${user.address}</p>
+        `;
+
+        // Orders
+        if (user.orders.length > 0) {
+            ordersList.innerHTML = user.orders.map(order => `
+                <div class="order-item">
+                    <p><strong>Order #${order.id}</strong></p>
+                    <p>Date: ${order.date}</p>
+                    <p>Total: $${order.total.toFixed(2)}</p>
+                </div>
+            `).join('');
+        } else {
+            ordersList.innerHTML = '<p>No orders found.</p>';
+        }
+    }
+
+    // Show login page initially
+    showLoginPage();
+</script>
+
+</body>
+</html>
