@@ -9,3 +9,4 @@ function showSection(sectionId) {
     var activeSection = document.getElementById(sectionId);
     activeSection.classList.add('active');
 }
+

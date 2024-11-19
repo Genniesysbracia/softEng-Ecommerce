@@ -52,10 +52,9 @@ document.getElementById('decrease').addEventListener('click', function() {
     if (currentValue > 1) {
         numberElement.innerText = currentValue - 1; // Decrease the count by 1 if it's greater than 1
     }
-    updateCounter(); // Update button state after decreasing
+    updateCounter(); 
 });
 
-// Event listener for clicking outside the modal to close it
 window.onclick = function(event) {
     const modal = document.getElementById('productModal');
     if (event.target == modal) {
@@ -63,14 +62,11 @@ window.onclick = function(event) {
     }
 }
 
-// Add to cart functionality (dummy placeholder)
 function addToCart() {
     const quantity = document.querySelector('.number').textContent;
     alert('Added ' + quantity + ' item(s) to the cart.');
-    // Here, you can implement the logic to add the product to the shopping cart.
 }
 
-// Show the button when scrolling down
 window.onscroll = function() {
     const button = document.getElementById('backToTop');
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -80,11 +76,9 @@ window.onscroll = function() {
     }
 };
 
-// Smooth scroll back to the top when button is clicked
 document.getElementById('backToTop').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default anchor behavior
+    event.preventDefault(); 
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Smooth scroll
+        top: 0,l
     });
 });
